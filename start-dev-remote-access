@@ -1,3 +1,7 @@
 #!/bin/bash
 
-aws ec2 start-instances --instance-ids 'i-00efd43d'
+echo Starting instance...
+aws ec2 start-instances --instance-ids 'i-052e23a5b004a30f5'
+sleep 2 # To allow instance to get to pending
+echo Setting IP address...
+aws ec2 associate-address --allocation-id "eipalloc-d1424bb3" --instance-id "i-052e23a5b004a30f5" --allow-reassociation --region ap-southeast-2
